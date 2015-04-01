@@ -123,7 +123,7 @@ class Sites_model extends CI_Model {
 			</ul>
 		</div>
 		
-		<center><p><small>Powered by <a href="http://www.halogy.com">Halogy</a> Community Edition</small></p></center>
+		<center><p><small>Powered by <a href="http://www.forgeigniter.com">ForgeIgniter</a></small></p></center>
 		<center><p><small>Page Executed In: {elapsed_time}</small></p></center>		
 	
 		

@@ -34,6 +34,8 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
+$active_group = "default";
+$active_record = TRUE;
 
 $db['default']['username'] = "%USERNAME%";
 $db['default']['password'] = "%PASSWORD%";
@@ -51,9 +53,5 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-// These need updated for CI 3
-$active_group = "default";
-$active_record = TRUE;
-
 /* End of file database.php */
-/* Location: ./halogy/config/database.php */
+/* Location: ./ForgeIgniter/config/database.php */
