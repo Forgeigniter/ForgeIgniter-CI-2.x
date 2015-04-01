@@ -1,0 +1,214 @@
+# HALOGY CHANGE LOG
+--------------------
+
+## Version 1.2.0 | CE 1.2.2
+
+- Community
+	¬ Updated: Search function change on query.
+	¬ Added: display how many users there is.
+
+- Shop
+	¬ Added: Rating Images.
+	¬ Fixed problems with subdomain support.
+	¬ Fixed: On Cat create, if no cats, takes you to blog cat.
+
+- Image Manager
+	¬ Fixed: Close Image not showing in Lightbox.
+	¬ Tweak: Style and display in browser viewer.
+	¬ Fixed: Subdomain Support.
+	
+- File Manager
+	¬ Tweak: Style and display in browser viewer.
+	¬ Fixed: Subdomain Support.
+	
+- Blog
+	¬ Updated: Search function change on query.
+	
+- WIKI
+	¬ Updated: Search function change on query.
+	
+- Events
+	¬ Fixed: Search link display blink
+	¬ Updated: Search function change on query.
+	
+- Halogy
+	¬ HTML 5 is a go ! (Backend updated to HTML5)
+	¬ Tweek: footer font color.
+	¬ added executed time to footer.
+	¬ Fixed: Missing </center> tag.
+	¬ Updated: user agent higher value support.
+	¬ Updated: Session IP now supports max length.
+	¬ Initial documentation started for Hal 1.2 & CE 1.3
+
+--------------------
+
+## Version 1.2.0 | CE 1.2.1
+
+- Markdown ITF Lib
+	¬ Updated to support 1.4.1 (this is also easier to update in the future)
+- Admin Users
+	¬ Fixed: Delete User Groups not functioning...
+- Events
+	¬ Fixed: featured events missing.
+- Gallery
+	¬ Fixed: Image thumbnail not showing.
+- Halogy
+	¬ Sites missing js file.
+	¬ Added: BBcode - now has [color=] & 9 Smiles, yes like :-)
+	
+--------------------
+
+## Version 1.2.0 | CE 1.2.0
+
+- Backend and Frontend subdomain support
+	¬ Too much to list, if request though, can list.
+- WIKI
+	¬  Fixed Errors on pages with versions
+	¬  Fixed Uncategorised pages give errors
+- Admin
+	¬ Fixed Congratulations message not showing correct path
+	¬ Added path to my account in message 'Password change'
+- Events
+	¬ Fixed event:edit tag
+	¬ Fixed cal date link to an actual link.
+
+--------------------
+
+## Version 1.2.0 - CE 1.1.1
+
+- Fixed issue with dates, PHP 5.3+ (Note: now GMT if not set)
+- Admin Theme
+	¬ Added bootstrap.min.css ( Started with installer)
+- Updated Installer
+	¬ Added steps and checks.
+	¬ Added Complete Page.
+	¬ Fixed rare DB Error.
+	¬ No need for manually going to : /halogy/install/
+	¬ Updated dashboard message if install were there.
+
+--------------------	
+	
+## Version 1.2.0 - CE 1.1.0
+
+- Added mySQL DB Setup.
+
+--------------------
+
+## Version 1.2.0 - CE 1.0.2
+
+- Updated CodeIgniter to version 2.2.0
+
+--------------------
+
+## Version 1.2.0 - CE 1.0.1
+
+- Fixed bug with Japanese or Foreign Character on page titles and comments
+- Fixed Error creating new site in multi site manager
+
+--------------------
+
+## Version 1.2.0 - CE 1.0.0
+
+- Updated CodeIgniter to version 2.1.4
+
+------------------------------------------------------------
+
+Core updates:
+
+
+## Version 1.2.0
+
+- Updated CodeIgniter to version 2.1
+- Updated jQuery to version 1.6.4
+- Updated Javascript replacing cms.js with an asynchronous loader.js which works better when jQuery is already loaded on the page
+- Updated Dashboard to check if the default Superuser password has not been changed for security
+- Updated MySQL dump to add a default Superuser name so its no longer blank
+- Updated Shop module to limit display of unpaid checkouts
+- Added ability to press ESC when editing blocks and wishing to cancel
+- Fixed bug where pressing return while editing blocks would jump to top of page in some browsers
+- Fixed bug where image and file browser wasn't always loading in Blog and Events modules
+- Fixed bugs with Shop module using split() which is deprecated in PHP 5.2
+- Fixed bug with Forums module which had a link to report posts when there is no such system
+
+--------------------
+
+## Version 1.1.0
+
+- Rebuilt with full CodeIgniter 2.0 support (NOTE: different directory structure to 1.0)
+- Updated HMVC to latest version (5.4)
+- Added ability to run Halogy 'inside a folder' with a custom path prefix (e.g. /index.php/)
+- Added ability to create a second level of nested pages (e.g. /about/team/developers)
+- Improved display of nested pages in admin
+- Added Excerpt handling for Page Description tag (in blog, events and shop modules)
+- Added FALSE parameter in the dateFmt helper to optionally disable timezone being taken into effect
+- Fixed bug where Published pages were showing as Modified right after publishing
+- Fixed bug where form output tags (errors and messages) weren't working in conditional statements
+- Fixed bug where events were not showing properly when using different timezones
+- Fixed bug where date was not setting properly when using different timezones
+- Fixed bug where Event End was not being considered when browsing events
+- Fixed various bugs relating to Tags in the Blog and Events modules
+
+--------------------
+
+## Version 1.0.4
+
+- Added a Publish button to the Inline Edit mode
+- Added better legibility to Web Form emails
+- Added Name and Email to Web Form emails
+- Improved page redirection when editing or deleting images
+- Removed referenced to split() function which is deprecated in PHP 5.2
+- Added ability to search for Shop Orders within the administration
+- Added ability to remove products based on Shop upsell settings
+- Various bug fixes
+
+--------------------
+
+## Version 1.0.3
+
+- Increased file upload limit in Web Forms to 2MB as standard
+- Added Category RSS Feed for Blog categories (e.g. /blog/my-category/feed)
+- Added Upsell system to Shop module
+- Added ability to delete Sites from MSM
+- Various bug fixes
+
+--------------------
+
+## Version 1.0.2
+
+- Added a search system for images and files
+- Added the ability for multiple levels of directories under images, gfx, css and js
+- Added search filters for stats tracking on the Dashboard (e.g. 30 days, 60 days)
+- Improved the Tag system to work with commas instead of spaces, allowing for tag phrases
+- Added a 'page:template' tag to allow for conditional statements to be run based on the module template
+- Added the ability for image ZIP upload to create thumbs
+- Added the ability to place products in multiple categories like the Blog
+- Added the ability to Tag shop products like the Blog
+- Added the ability to add descriptions to shop categories
+- Added improved Search Engine Optimized URLs for Blog and Shop
+- Added the ability to customize the order of products in a category via drag and drop
+- Added the ability to filter products based on Category or Featured in the administration
+- Added the ability to have products saved as drafts with a Publish field like the Blog
+- Added Authorize.net support for the Shop
+- Viewing orders now shows the discount coupon code used
+- Changed the default order of products to Custom order followed by descending date order
+
+--------------------
+
+## Version 1.0.1
+
+- Added a Gallery feature to the Headlines module in Template.php
+- Added support for Favicon and SWF files
+- Added the ability to optionally upload files (e.g. jpg, gif, doc, pdf) using the Web Form module
+- Added Date Published field to the Pages system so that you can see if a page has been modified since publish
+- Added an Also Recommended system for the shop which shows 3 other products from the same category randomly
+- Added the ability to export transaction data (orders) as a CSV from the Shop Administration
+- Added the ability to force Unpaid Shop Transactions to Paid (and send the order confirmation email), in cases where payment wasn't processed.
+- Added the ability to show shop products from any category using the Headlines module, not just featured products
+- Various bug fixes and security updates
+
+
+--------------------
+
+## Version 1.0.0
+
+- Initial Halogy version.
