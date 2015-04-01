@@ -1,8 +1,8 @@
 <?php
 //Check if we need to start installer
-if(!file_exists("halogy/config/database.php"))
+if(!file_exists("ForgeIgniter/config/database.php"))
 {
-	header("Location: halogy/install/");
+	header("Location: ForgeIgniter/install/");
 	exit;
 }
 
@@ -75,7 +75,7 @@ if(ini_get('date.timezone') == '' )
  * as this file.
  *
  */
-	$system_path = 'halogy/system';
+	$system_path = 'ForgeIgniter/system';
 
 /*
  *---------------------------------------------------------------
@@ -91,7 +91,7 @@ if(ini_get('date.timezone') == '' )
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = 'halogy';
+	$application_folder = 'ForgeIgniter';
 
 /*
  * --------------------------------------------------------------------
