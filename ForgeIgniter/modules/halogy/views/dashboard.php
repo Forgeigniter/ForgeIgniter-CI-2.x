@@ -161,7 +161,15 @@ $(function(){
 			</tr>
 			<tr>
 				<th class="narrow">Site email:</th>
-				<td><small><a href="mailto:<?php echo $this->site->config['siteEmail']; ?>"><?php echo $this->site->config['siteEmail']; ?></a></small></td>
+				<td><small>
+					<?php
+					$site_email = $this->site->config['siteEmail'];
+					if (empty($site_email)){
+					} else {
+						echo $site_email;
+					}
+					?>
+				</small></td>
 			</tr>
 		</table>
 
