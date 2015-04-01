@@ -137,7 +137,7 @@ $(function(){
 							<em>by <?php echo $this->core->lookup_user($child['userID'], TRUE); ?></em></small>
 						</div>
 						<div class="buttons">
-							<?php echo anchor($child['uri'], '<img src="'.base_url.$this->config->item('staticPath').'/images/btn_view.png" alt="View" title="View" />'); ?>
+							<?php echo anchor($child['uri'], '<img src="'.base_url().$this->config->item('staticPath').'/images/btn_view.png" alt="View" title="View" />'); ?>
 							<?php if (in_array('pages_edit', $this->permission->permissions)): ?>
 								<?php echo anchor('/admin/pages/edit/'.$child['pageID'], '<img src="'.base_url().$this->config->item('staticPath').'/images/btn_edit.png" alt="Edit" title="Edit" />'); ?>
 							<?php endif; ?>
