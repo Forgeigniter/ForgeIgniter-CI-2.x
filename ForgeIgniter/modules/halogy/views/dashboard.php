@@ -165,6 +165,7 @@ $(function(){
 					<?php
 					$site_email = $this->site->config['siteEmail'];
 					if (empty($site_email)){
+						echo "No E-mail Set";
 					} else {
 						echo $site_email;
 					}

@@ -108,9 +108,9 @@ class Admin extends MX_Controller {
 		}
 		
 		// Is Install still there ?
-		if(file_exists(FCPATH."halogy\install\index.php"))
+		if(file_exists(FCPATH."ForgeIgniter\install\index.php"))
 		{
-				$this->form_validation->set_error('Please delete halogy/install folder.');
+				$this->form_validation->set_error('Please delete ForgeIgniter/install folder.');
 				
 		}
 
