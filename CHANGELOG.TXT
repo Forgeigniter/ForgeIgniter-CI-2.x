@@ -1,4 +1,30 @@
-# HALOGY CHANGE LOG
+# ForgeIgniter CHANGE LOG
+--------------------------
+
+## Version 0.2
+
+- CodeIgniter
+	¬ Updated to v2.2.2
+
+--------------------
+
+## Version 0.1
+
+- Admin Dashboard
+	¬ Added: E-mail Setup Check.
+	
+- Pages
+	¬ Fixed: Sub Page button views.
+	
+- Forge
+	¬ Updated to reflect new name.
+	¬ Updated: Modular Extensions - HMVC
+	
+- CodeIgniter
+	¬ Updated to v2.2.1
+
+--------------------
+Halogy moves on to ForgeIgniter, thanks go to Stu Green and Jesse  2010 - 2015
 --------------------
 
 ## Version 1.2.0 | CE 1.2.2
@@ -9,7 +35,7 @@
 
 - Shop
 	¬ Added: Rating Images.
-	¬ Fixed problems with subdomain support.
+	¬ Fixed: problems with subdomain support.
 	¬ Fixed: On Cat create, if no cats, takes you to blog cat.
 
 - Image Manager
