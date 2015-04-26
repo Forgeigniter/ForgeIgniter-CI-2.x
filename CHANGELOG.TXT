@@ -4,7 +4,7 @@
 ## Version 0.2
 
 - CodeIgniter
-	¬ Updated to v2.2.2
+	¬ Updated to v2.2.2 (http://www.codeigniter.com/userguide2/changelog.html)
 
 --------------------
 
