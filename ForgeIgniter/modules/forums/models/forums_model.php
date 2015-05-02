@@ -527,14 +527,16 @@ class Forums_Model extends CI_Model {
 	
 	function get_avatar($filename)
 	{
-		$pathToAvatars = 'static/avatars/';
+		$site_base_path = realpath('');
+		$pathToAvatars = $this->uploads->uploadsPath.'/avatars/';
 		if (is_file('.'.$pathToAvatars.$filename))
 		{
 			$avatar = $pathToAvatars.$filename;
 		}
 		else
 		{
-			$avatar = $pathToAvatars.'noavatar.gif';
+			
+			$avatar = $site_base_path.$pathToAvatars.'noavatar.gif';
 		}
 		return $avatar;
 	}	
