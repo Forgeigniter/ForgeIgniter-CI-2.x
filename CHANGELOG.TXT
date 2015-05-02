@@ -3,6 +3,13 @@
 
 ## Version 0.2
 
+- Blogs
+	¬ Update: Reorder Body & intro
+	¬ Added: Excerpt preview to Edit and Add Post
+
+- Forums
+	¬ Updated: Avatar now have real path.
+
 - CodeIgniter
 	¬ Updated to v2.2.2 (http://www.codeigniter.com/userguide2/changelog.html)
 

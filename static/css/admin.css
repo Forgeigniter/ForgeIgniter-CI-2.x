@@ -92,7 +92,7 @@ div.content textarea { background: #f5f5f5; border: 1px solid #aaa; padding: 5px
 div.content textarea.small { width: 380px !important; height: 100px; }
 div.content textarea.big { height: 400px; }
 div.content textarea.half { width: 570px; margin: 0 6px 6px 0; }	
-div.content textarea.short { width: 570px !important; height: 80px; }
+div.content textarea.short { width: 570px !important; height: 80px; margin:0 6px 6px 0 }
 div.content textarea.editor { width: 987px; height: 400px; font-family: monospace, sans-serif; font-size: 10pt; }
 div.content small { color: #999; font-size: 0.9em; }
 div.content hr { border: 0; color: #ccc; background-color: #ccc; height: 1px; width: 100%; text-align: left; margin: 5px 0 10px; }	
@@ -255,6 +255,8 @@ form.default .nolabel { margin: 0; }
 form.default .readonly { float: left; padding: 6px; margin: 0 0 6px; }
 form.default .preview { float: left; width: 396px; height: 278px; background: url(../images/preview_bg.gif) no-repeat center; overflow: auto; border: 1px solid #ccc; padding: 6px; margin: 0 0 6px; }	
 form.default .preview img { max-width: 380px; }
+form.default .previewExcerpt { float: left; width: 396px; height: 80px; background: url(../images/preview_bg.gif) no-repeat center; overflow: auto; border: 1px solid #ccc; padding: 6px; margin: 0 0 6px; }	
+form.default .previewExcerpt img { max-width: 380px; }
 form.default .small { width: 50px !important; }
 form.default .price { float: left; line-height: 30px; margin: 0 5px; }
 input.disabled { color: #aaa !important; }
@@ -305,6 +307,7 @@ div.panes { width: 998px; overflow: hidden; clear: both; }
 div.pane { float: left; width: 998px; }
 
 div#editor, iframe#preview { width: 996px; height: 540px; margin-top: 10px; overflow: auto; border: 1px solid #ddd; }
+div#editor, iframe#previewExcerpt { width: 996px; height: 540px; margin-top: 10px; overflow: auto; border: 1px solid #ddd; }
 
 div.uploadfile { float: left; width: 250px; padding: 6px; background: #ffeece; border: 1px solid #bbb; margin: 0 0 6px; }
 div.uploadfile img { max-width: 250px; max-height: 250px; }

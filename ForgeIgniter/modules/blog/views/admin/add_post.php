@@ -4,6 +4,11 @@ function preview(el){
 		$('div.preview').html(data);
 	});
 }
+function previewExcerpt(el){
+	$.post('<?php echo site_url('/admin/blog/preview'); ?>', { body: $(el).val() }, function(data){
+		$('div.previewExcerpt').html(data);
+	});
+}
 $(function(){
 	$('div.category>span, div.category>input').hover(
 		function() {
@@ -33,6 +38,17 @@ $(function(){
 		preview(this);
 	});
 	preview($('textarea#body'));
+	
+	//Preview Button
+	$('textarea#excerpt').focus(function(){
+		$('.previewExcerptbutton').show();
+	});
+	
+	$('textarea#excerpt').blur(function(){
+		previewExcerpt(this);
+	});
+	$('input.datebox').datepicker({dateFormat: 'dd M yy'});
+	previewExcerpt($('textarea#excerpt'));
 });
 </script>
 
@@ -73,6 +89,15 @@ $(function(){
 		<?php endif; ?>
 	</div>
 	<br class="clear" />
+	
+	<div class="autosave">
+		<label for="excerpt">Introduction (Excerpt):</label>
+		<?php echo @form_textarea('excerpt', set_value('excerpt', $data['excerpt']), 'id="excerpt" class="formelement code short"'); ?>
+		<div class="previewExcerpt"></div>
+	</div>
+	
+	<br class="clear" />
+	<hr/>
 
 	<div class="buttons">
 		<a href="#" class="boldbutton"><img src="<?php echo base_url() . $this->config->item('staticPath'); ?>/images/btn_bold.png" alt="Bold" title="Bold" /></a>
@@ -87,14 +112,10 @@ $(function(){
 	</div>
 
 	<div class="autosave">
-		<label for="body">Body:</label>
+		<label for="body">Content (Body):</label>
 		<?php echo @form_textarea('body', set_value('body', $data['body']), 'id="body" class="formelement code half"'); ?>
 		<div class="preview"></div>
 	</div>
-	<br class="clear" /><br />
-
-	<label for="excerpt">Excerpt:</label>
-	<?php echo @form_textarea('excerpt', set_value('excerpt', $data['excerpt']), 'id="excerpt" class="formelement code short"'); ?>
 	<br class="clear" /><br />
 
 	<h2 class="underline">Publishing and Options</h2>
