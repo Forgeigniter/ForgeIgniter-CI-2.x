@@ -9,7 +9,10 @@
 
 - Forums
 	¬ Updated: Avatar now have real path.
-
+	
+- Markdown ITF Lib
+	¬ Updated to support 1.5.0
+	
 - CodeIgniter
 	¬ Updated to v2.2.2 (http://www.codeigniter.com/userguide2/changelog.html)
 
