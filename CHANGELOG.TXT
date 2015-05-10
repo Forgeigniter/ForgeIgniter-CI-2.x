@@ -19,6 +19,7 @@
 	
 - ForgeIgniter
 	¬ Updated Doctypes
+	¬ Updated Foreign Characters
 	¬ Updated Information on all files
 	
 - CodeIgniter
