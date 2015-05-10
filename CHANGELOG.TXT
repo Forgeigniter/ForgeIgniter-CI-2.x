@@ -1,15 +1,18 @@
 # ForgeIgniter CHANGE LOG
+# CodeIgniter 2.x Branch
 --------------------------
 
 ## Version 0.2
 
 - Blogs
-	¬ Update: Reorder Body & intro
-	¬ Added: Excerpt preview to Edit and Add Post
+	¬ Update: Reorder Body & Introduction.
+	¬ Added: Excerpt preview to Edit and Add Post.
+	¬ Added: New Tags {blog:newer:btn} & {blog:older:btn}.
+	¬ Added: Custom CSS button Class Global Variable.
 
 - Forums
 	¬ Updated: Avatar now have real path.
-	
+
 - Markdown ITF Lib
 	¬ Updated to support 1.5.0
 	
