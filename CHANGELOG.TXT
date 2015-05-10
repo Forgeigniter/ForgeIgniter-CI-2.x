@@ -24,6 +24,7 @@
 	¬ Updated: User Agents
 	¬ Updated: doctype to 403 files and added missing 403 files.
 	¬ Updated: Information on all files
+	¬ Updated: Error Messages.
 	
 - CodeIgniter
 	¬ Updated to v2.2.2 (http://www.codeigniter.com/userguide2/changelog.html)
