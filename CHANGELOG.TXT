@@ -9,6 +9,7 @@
 	¬ Added: Excerpt preview to Edit and Add Post.
 	¬ Added: New Tags {blog:newer:btn} & {blog:older:btn}.
 	¬ Added: Custom CSS button Class Global Variable.
+	¬ Fixed: RSS Agent Resource
 
 - Forums
 	¬ Updated: Avatar now have real path.
