@@ -21,6 +21,7 @@
 	¬ Updated Doctypes
 	¬ Updated Foreign Characters
 	¬ Updated Allowed file types
+	¬ Updated User Agents
 	¬ Updated Information on all files
 	
 - CodeIgniter
