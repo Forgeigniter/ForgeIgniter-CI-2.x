@@ -176,8 +176,6 @@ class Tags {
 
 	}
 
-	
-
 	/*
 	 * Fetch the most popular/used tags
 	 *
@@ -233,8 +231,6 @@ class Tags {
 
 	}
 
-
-
 	/*
 	 * Get tag data based on tag_id OR safe_tag
 	 *
@@ -266,8 +262,6 @@ class Tags {
 		}
 
 	}
-
-	
 
 	/*
 	 * Fetch all rows/objects that use one or more safe_tag(s) or tag_id(s)
@@ -326,8 +320,6 @@ class Tags {
 
 	}
 
-
-
 	/*
 	 * Count all the tags for a user and/or table
 	 *
@@ -368,8 +360,6 @@ class Tags {
 
 	}
 	
-	
-	
 	/*
 	 * Insert tags for a row/object
 	 *
@@ -409,7 +399,6 @@ class Tags {
 			$safe_tags[] = $safe_tag;
 
 		}
-
 
 		//STEP 2: Search DB for the tags already in there
 		$this->CI->db->select('id, tag, safe_tag');
@@ -504,8 +493,6 @@ class Tags {
 
 	}
 
-
-
 	/*
 	 * Delete tag relationships to a row/object
 	 *
@@ -543,8 +530,6 @@ class Tags {
 
 	}
 
-
-	
 	/*
 	 * Delete all tags from a given user
 	 *
@@ -576,8 +561,6 @@ class Tags {
 		return $rows;
 
 	}
-
-
 
 	/*
 	 * Delete tags not referenced by any row/object.
@@ -803,7 +786,6 @@ class Tags {
 		}
 	}
 
-
 	/*
 	 * SUPPORT FUNCTIONS
 	 */
@@ -846,8 +828,6 @@ class Tags {
 		return $string;
 	}
 
-
-
 	/*
 	 * Make a tag safe for file & URL usage
 	 * @param	string	the tag to clean
@@ -863,8 +843,6 @@ class Tags {
 		$tag = trim($tag, '-');
 		return $tag;
 	}
-
-
 
 	/*
 	 * Adds a WHERE Clause to a query. Pass this function a single

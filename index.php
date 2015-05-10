@@ -1,4 +1,19 @@
 <?php
+/**
+ * ForgeIgniter
+ *
+ * A user friendly, modular content management system.
+ * Forged on CodeIgniter - http://codeigniter.com
+ *
+ * @package		ForgeIgniter
+ * @author		ForgeIgniter Team
+ * @copyright	Copyright (c) 2015, ForgeIgniter
+ * @license		http://forgeigniter.com/license
+ * @link		http://forgeigniter.com/
+ * @since		Hal Version 1.0
+ * @filesource
+ */
+ 
 //Check if we need to start installer
 if(!file_exists("ForgeIgniter/config/database.php"))
 {

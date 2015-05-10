@@ -2,7 +2,7 @@
 
 /*  NOTES:
  | --------
- | PHP should be 5.4 + preferably 5.6, difference from 5.4 to 5.6 is little though.
+ | PHP should be 5.4.x preferably 5.6.x
  | MySQLi Is A must too really, for now MySQL setup is better than nothing.
  | Given that the config is a multidimensional array this should be easy.
  |

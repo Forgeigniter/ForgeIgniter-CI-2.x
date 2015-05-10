@@ -17,7 +17,7 @@
 |
 | Please see the user guide for complete details:
 |
-|	http://codeigniter.com/user_guide/general/routing.html
+|	http://codeigniter.com/userguide2/general/routing.html
 |
 | -------------------------------------------------------------------------
 | RESERVED ROUTES
@@ -93,4 +93,4 @@ $route['(.*)'] = 'pages/index/$1';
 
 
 /* End of file routes.php */
-/* Location: ./halogy/config/routes.php */
+/* Location: ./ForgeIgniter/config/routes.php */

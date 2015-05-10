@@ -8,7 +8,7 @@
 | :-) and :) use the same image replacement.
 |
 | Please see user guide for more info:
-| http://codeigniter.com/user_guide/helpers/smiley_helper.html
+| http://codeigniter.com/userguide2/helpers/smiley_helper.html
 |
 */
 
@@ -63,4 +63,4 @@ $smileys = array(
 		);
 
 /* End of file smileys.php */
-/* Location: ./application/config/smileys.php */
+/* Location: ./ForgeIgniter/config/smileys.php */

@@ -1,16 +1,16 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Halogy
+ * ForgeIgniter
  *
- * A user friendly, modular content management system for PHP 5.0
- * Built on CodeIgniter - http://codeigniter.com
+ * A user friendly, modular content management system.
+ * Forged on CodeIgniter - http://codeigniter.com
  *
- * @package		Halogy
- * @author		Haloweb Ltd
- * @copyright	Copyright (c) 2012, Haloweb Ltd
- * @license		http://halogy.com/license
- * @link		http://halogy.com/
- * @since		Version 1.0
+ * @package		ForgeIgniter
+ * @author		ForgeIgniter Team
+ * @copyright	Copyright (c) 2015, ForgeIgniter
+ * @license		http://forgeigniter.com/license
+ * @link		http://forgeigniter.com/
+ * @since		Hal Version 1.0
  * @filesource
  */
 

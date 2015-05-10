@@ -1,16 +1,16 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Halogy
+ * ForgeIgniter
  *
- * A user friendly, modular content management system for PHP 5.0
- * Built on CodeIgniter - http://codeigniter.com
+ * A user friendly, modular content management system.
+ * Forged on CodeIgniter - http://codeigniter.com
  *
- * @package		Halogy
- * @author		Haloweb Ltd
- * @copyright	Copyright (c) 2012, Haloweb Ltd
- * @license		http://halogy.com/license
- * @link		http://halogy.com/
- * @since		Version 1.0
+ * @package		ForgeIgniter
+ * @author		ForgeIgniter Team
+ * @copyright	Copyright (c) 2015, ForgeIgniter
+ * @license		http://forgeigniter.com/license
+ * @link		http://forgeigniter.com/
+ * @since		Hal Version 1.0
  * @filesource
  */
 
@@ -313,7 +313,6 @@ class Site {
 		{
 			$this->config['emailDispatch'] = "This is a notification to say that your order {order-id} on ".$this->config['siteName']." has been shipped.\n\nYou can track your order and view past orders by clicking on the link below.\n\n".site_url('/shop/orders')."\n\nIf you have any other queries about your order, please do not hesitate to contact us at ".$this->config['siteEmail']." quoting your unique order reference number.";
 		}
-
 
 		return TRUE;
 	}

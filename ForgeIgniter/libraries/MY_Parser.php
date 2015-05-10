@@ -18,7 +18,7 @@
 /**
  * MY Parser Class
  *
- * @package		CodeIgniter
+ * @package		ForgeIgniter
  * @subpackage	Libraries
  * @category	Parser
  * @author		Haloweb Ltd

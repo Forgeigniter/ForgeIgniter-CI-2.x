@@ -22,7 +22,7 @@
  * @subpackage	Libraries
  * @category	Libraries
  * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/libraries/ftp.html
+ * @link		http://codeigniter.com/userguide2/libraries/ftp.html
  */ 
 class MY_FTP extends CI_FTP {
 	
@@ -89,4 +89,4 @@ class MY_FTP extends CI_FTP {
 // END FTP Class
 
 /* End of file Ftp.php */
-/* Location: ./system/libraries/Ftp.php */
+/* Location: ./ForgeIgniter/libraries/MY_Ftp.php */

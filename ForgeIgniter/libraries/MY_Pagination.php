@@ -6,7 +6,7 @@
 * @author Joost van Veen www.accentinteractive.nl
 * @created: Sun Jul 27 16:27:26 GMT 2008 16:27:26
 *
-* Extends CI's pagination class (http://codeigniter.com/user_guide/libraries/pagination.html)
+* Extends CI's pagination class (http://codeigniter.com/userguide2/libraries/pagination.html)
 * It sets some variables for configuration of the pagination class dynamically,
 * depending on the URI, so we don't have to substract the offset from the URI,
 * or set $config['base_url'] and $config['uri_segment'] manually in the controller
