@@ -20,6 +20,7 @@
 - ForgeIgniter
 	¬ Updated Doctypes
 	¬ Updated Foreign Characters
+	¬ Updated Allowed file types
 	¬ Updated Information on all files
 	
 - CodeIgniter
