@@ -275,6 +275,7 @@ class Blog extends MX_Controller {
 			$output['post:author'] = (($author['displayName']) ? $author['displayName'] : $author['firstName'].' '.$author['lastName']);
 			$output['post:author-id'] = $author['userID'];
 			$output['post:author-email'] = $author['email'];
+			$output['post:author-avatar'] = anchor('/users/profile/'.$author['userID'], display_image($this->blog->get_user_avatar($author['avatar']), 'User Avatar', 100, 'class="bordered"', site_url().$this->config->item('staticPath').'/images/noavatar.gif'));
 			$output['post:author-gravatar'] = 'http://www.gravatar.com/avatar.php?gravatar_id='.md5(trim($author['email'])).'&default='.urlencode(site_url('/static/uploads/avatars/noavatar.gif'));
 			$output['post:author-bio'] = $author['bio'];
 			$output['post:allow-comments'] = ($post['allowComments']) ? TRUE : FALSE;

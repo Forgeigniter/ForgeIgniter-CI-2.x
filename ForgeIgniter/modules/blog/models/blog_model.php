@@ -657,6 +657,22 @@ class Blog_Model extends CI_Model {
 			return FALSE;
 		}		
 	}
+	
+	//Grab Users Avatar
+	function get_user_avatar($filename)
+	{
+		$site_base_path = realpath('');
+		$pathToAvatars = $this->uploads->uploadsPath.'/avatars/';
+		if (is_file('.'.$pathToAvatars.$filename))
+		{
+			$avatar = $pathToAvatars.$filename;
+		}
+		else
+		{
+			$avatar = $site_base_path.$pathToAvatars.'noavatar.gif';
+		}
+		return $avatar;
+	}
 
 	function search_posts($query = '', $ids = '')
 	{

@@ -9,10 +9,11 @@
 	¬ Added: Excerpt preview to Edit and Add Post.
 	¬ Added: New Tags {blog:newer:btn} & {blog:older:btn}.
 	¬ Added: Custom CSS button Class Global Variable.
+	¬ Added: New Tag {post:author-avatar}
 	¬ Fixed: RSS Agent Resource
 
 - Forums
-	¬ Updated: Avatar now have real path.
+	¬ Updated: Avatars now have real path.
 
 - Markdown ITF Lib
 	¬ Updated: to support 1.5.0
@@ -47,7 +48,7 @@
 	¬ Updated to v2.2.1
 
 --------------------
-Halogy moves on to ForgeIgniter, thanks go to Stu Green and Jesse  2010 - 2015
+Updates move officially to ForgeIgniter.
 --------------------
 
 ## Version 1.2.0 | CE 1.2.2
@@ -160,10 +161,11 @@ Halogy moves on to ForgeIgniter, thanks go to Stu Green and Jesse  2010 - 2015
 
 - Updated CodeIgniter to version 2.1.4
 
-------------------------------------------------------------
+--------------------
+Halogy moves on, thanks go to Stu Green and Jesse  2010 - 2015
+--------------------
 
 Core updates:
-
 
 ## Version 1.2.0
 
