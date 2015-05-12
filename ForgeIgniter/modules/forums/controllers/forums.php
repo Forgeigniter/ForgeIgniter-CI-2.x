@@ -87,6 +87,7 @@ class Forums extends MX_Controller {
 								'forum:replies' => $forum['replies'],
 								'forum:latest-post' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/forums/viewpost/'.$latestPost['postID'], $latestPost['topicTitle']) : "",
 								'forum:latest-date' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? dateFmt($latestPost['dateCreated']) : "",
+								'forum:latest-time' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? timeFmt($latestPost['dateCreated']) : "",
 								'forum:latest-user' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/users/profile/'.$latestPost['userID'], (($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName'])) : ''
 							);
 						}
@@ -117,6 +118,7 @@ class Forums extends MX_Controller {
 							'forum:replies' => $forum['replies'],
 							'forum:latest-post' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/forums/viewpost/'.$latestPost['postID'], $latestPost['topicTitle']) : "",
 							'forum:latest-date' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? dateFmt($latestPost['dateCreated']) : "",
+							'forum:latest-time' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? timeFmt($latestPost['dateCreated']) : "",
 							'forum:latest-user' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/users/profile/'.$latestPost['userID'], (($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName'])) : ''
 						);
 					}
@@ -163,6 +165,7 @@ class Forums extends MX_Controller {
 					'topic:views' => $topic['views'],
 					'topic:latest-post' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? '<small>Posted: '.dateFmt($latestPost['dateCreated']).' by '.anchor('/users/profile/'.$latestPost['userID'], ($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName']).'</small>' : '',
 					'topic:latest-date' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? dateFmt($latestPost['dateCreated']) : '',
+					'topic:latest-time' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? timeFmt($latestPost['dateCreated']) : '',
 					'topic:latest-user' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? anchor('/users/profile/'.$latestPost['userID'], ($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName']) : ''
 				);
 			}

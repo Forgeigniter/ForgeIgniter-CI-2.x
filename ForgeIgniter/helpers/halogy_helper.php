@@ -531,6 +531,37 @@ function datefmt($date, $fmt = '', $timezone = '', $seconds = FALSE)
 		return false;
 	}
 }
+// time formatting for mysql dates
+function timefmt($date, $fmt = '', $timezone = '')
+{
+	$CI =& get_instance();
+
+	if ($CI->site->config['timezone'] && $timezone === '')
+	{
+		$timezone = $CI->site->config['timezone'];
+	}
+	
+	if (!$fmt)
+	{
+		$fmt .= 'h:i A';
+	}
+	
+	if ($date && $date > 0)
+	{
+		$timestamp = strtotime($date);
+
+		if ($timezone)
+		{
+			$timestamp = gmt_to_local(local_to_gmt($timestamp), $timezone, FALSE);
+		}
+
+		return date($fmt, $timestamp);
+	}
+	else
+	{ 
+		return false;
+	}
+}
 
 function currency_symbol($html = TRUE, $currency = '')
 {

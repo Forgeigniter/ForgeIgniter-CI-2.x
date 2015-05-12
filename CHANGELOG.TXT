@@ -17,12 +17,14 @@
 	¬ Updated: Avatars now have real path.
 	¬ Updated: Stripped out HTML in the controller view
 	¬ Updated: Forum view now actually displays last post
-	¬ Added: New Tags forum:latest-date, forum:latest-user, topic:latest-date and topic:latest-user
+	¬ Added: New Forum Tags forum:latest-date, forum:latest-user, forum:latest-time
+	¬ Added: New Topic Tags topic:latest-date, topic:latest-user, topic:latest-time
 
 - Markdown ITF Lib
 	¬ Updated: to support 1.5.0
 	
 - ForgeIgniter
+	¬ Updated: Lib time format
 	¬ Updated: Doctypes
 	¬ Updated: Foreign Characters
 	¬ Updated: Allowed file types
