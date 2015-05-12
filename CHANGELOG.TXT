@@ -6,6 +6,7 @@
 
 - Blogs
 	¬ Update: Reorder Body & Introduction.
+	¬ Update: Author Bio now displays a message if blank.
 	¬ Added: Excerpt preview to Edit and Add Post.
 	¬ Added: New Tags {blog:newer:btn} & {blog:older:btn}.
 	¬ Added: Custom CSS button Class Global Variable.
