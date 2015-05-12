@@ -15,6 +15,9 @@
 
 - Forums
 	¬ Updated: Avatars now have real path.
+	¬ Updated: Stripped out HTML in the controller view
+	¬ Updated: Forum view now actually displays last post
+	¬ Added: New Tags forum:latest-date, forum:latest-user, topic:latest-date and topic:latest-user
 
 - Markdown ITF Lib
 	¬ Updated: to support 1.5.0

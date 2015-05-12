@@ -85,11 +85,9 @@ class Forums extends MX_Controller {
 								'forum:description' => $forum['description'],
 								'forum:topics' => $forum['topics'],
 								'forum:replies' => $forum['replies'],
-								'forum:latest-post' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? 
-									'<small>'.anchor('/forums/viewpost/'.$latestPost['postID'], $latestPost['topicTitle']).'<br />
-									Posted: '.dateFmt($latestPost['dateCreated']).' by '. anchor('/users/profile/'.$latestPost['userID'], 
-									(($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName'])).
-									'</small>' : ''
+								'forum:latest-post' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/forums/viewpost/'.$latestPost['postID'], $latestPost['topicTitle']) : "",
+								'forum:latest-date' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? dateFmt($latestPost['dateCreated']) : "",
+								'forum:latest-user' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/users/profile/'.$latestPost['userID'], (($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName'])) : ''
 							);
 						}
 					}
@@ -117,11 +115,9 @@ class Forums extends MX_Controller {
 							'forum:description' => $forum['description'],
 							'forum:topics' => $forum['topics'],
 							'forum:replies' => $forum['replies'],
-							'forum:latest-post' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? 
-								'<small>'.anchor('/forums/viewpost/'.$latestPost['postID'], $latestPost['topicTitle']).'<br />
-								Posted: '.dateFmt($latestPost['dateCreated']).' by '. anchor('/users/profile/'.$latestPost['userID'], 
-								(($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName'])).
-								'</small>' : ''
+							'forum:latest-post' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/forums/viewpost/'.$latestPost['postID'], $latestPost['topicTitle']) : "",
+							'forum:latest-date' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? dateFmt($latestPost['dateCreated']) : "",
+							'forum:latest-user' => ($latestPost = $this->forums->get_post($forum['lastPostID'])) ? anchor('/users/profile/'.$latestPost['userID'], (($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName'])) : ''
 						);
 					}
 				}
@@ -165,8 +161,9 @@ class Forums extends MX_Controller {
 					'topic:class' => ($topic['sticky']) ? 'sticky' : '',
 					'topic:replies' => $topic['replies'],
 					'topic:views' => $topic['views'],
-					'topic:latest-post' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? 
-						'<small>Posted: '.dateFmt($latestPost['dateCreated']).' by '.anchor('/users/profile/'.$latestPost['userID'], ($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName']).'</small>' : ''
+					'topic:latest-post' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? '<small>Posted: '.dateFmt($latestPost['dateCreated']).' by '.anchor('/users/profile/'.$latestPost['userID'], ($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName']).'</small>' : '',
+					'topic:latest-date' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? dateFmt($latestPost['dateCreated']) : '',
+					'topic:latest-user' => ($latestPost = $this->forums->get_post($topic['lastPostID'])) ? anchor('/users/profile/'.$latestPost['userID'], ($latestPost['displayName']) ? $latestPost['displayName'] : $latestPost['firstName'].' '.$latestPost['lastName']) : ''
 				);
 			}
 		}
