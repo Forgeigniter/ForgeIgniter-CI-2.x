@@ -73,7 +73,11 @@
 			<label for="companyName">Company Name:</label>
 			<input type="text" name="companyName" value="{form:companyName}" id="companyName" class="formelement" />
 			<br class="clear" />
-		
+			
+			<label for="companyName">Company Website:</label>
+			<input type="text" name="companyWebsite" value="{form:companyWebsite}" id="companyWebsite" class="formelement" />
+			<br class="clear" />
+
 			<label for="companyDescription">About Your Company:</label>
 			<textarea name="companyDescription" id="companyDescription" class="formelement small">{form:companyDescription}</textarea><br class="clear" />
 			<span class="tip">Optionally describe your company. This is shown on your profile.</span><br class="clear" /><br />
