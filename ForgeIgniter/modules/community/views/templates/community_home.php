@@ -20,18 +20,21 @@
 		
 		{if user:bio}
 			<h3>About Me</h3>
+			<p><a href="{user:website}">{user:website}</a></p>
 			<div class="bio">
 				{user:bio}
 			</div>
 		{/if}
 
-		{if user:employer}
+		{if user:company}
 			<h3>My work</h3>
 
-			<p><strong>{user:employer}</strong></p>
+			<p><strong>{user:company}</strong></p>
+			
+			<p><a href="{user:company-website}">{user:company-website}</a></p>
 			
 			<div class="bio">
-				{user:work}
+				{user:company-description}
 			</div>
 		{/if}
 		

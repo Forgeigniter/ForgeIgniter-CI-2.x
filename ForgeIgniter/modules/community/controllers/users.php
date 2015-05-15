@@ -369,6 +369,7 @@ class Users extends MX_Controller {
 		$output['form:firstName'] = set_value('firstName', $data['firstName']);
 		$output['form:lastName'] = set_value('lastName', $data['lastName']);
 		$output['form:bio'] = set_value('bio', $data['bio']);
+		$output['form:website'] = set_value('website', $data['website']);
 		$output['form:signature'] = set_value('signature', $data['signature']);
 		$output['form:companyName'] = set_value('companyName', $data['companyName']);
 		$output['form:companyEmail'] = set_value('companyEmail', $data['companyEmail']);
@@ -525,7 +526,10 @@ class Users extends MX_Controller {
 		// load bio
 		$data['user']['bio'] .= ($userID == $this->session->userdata('userID')) ? '  [[url=/users/account#changebio]Update[/url]]' : '';
 		$output['user:bio'] = (($data['user']['privacy'] == 'V' || $data['user']['userID'] == $this->session->userdata('userID')) && $data['user']['bio']) ? bbcode($data['user']['bio']) : FALSE;
-
+		
+		// load website
+		$output['user:website'] = ($data['user']['website']) ? $data['user']['website'] : '';
+		
 		// load company
 		$output['user:company'] = ($data['user']['companyName']) ? $data['user']['companyName'] : '';
 		$output['user:company-website'] = ($data['user']['companyWebsite']) ? $data['user']['companyWebsite'] : '';

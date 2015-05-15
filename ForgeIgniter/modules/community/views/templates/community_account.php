@@ -57,7 +57,11 @@
 			<label for="bio">Bio:</label>
 			<textarea name="bio" id="bio" class="formelement small">{form:bio}</textarea><br class="clear" />
 			<span class="tip">A few paragraphs about yourself. This is shown on your profile.</span><br class="clear" /><br />
-		
+
+			<label for="website">Website:</label>
+			<input type="text" name="website" value="{form:website}" id="website" class="formelement" />
+			<br/>
+			
 			<label for="signature">Signature:</label>	
 			<textarea name="signature" id="signature" class="formelement small">{form:signature}</textarea><br class="clear" />
 			<span class="tip">This is placed at the end of your posts in the forum.</span>

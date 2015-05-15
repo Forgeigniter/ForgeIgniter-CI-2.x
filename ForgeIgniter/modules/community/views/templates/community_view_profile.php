@@ -8,6 +8,7 @@
 	
 		{if user:bio}
 			<h3>About Me</h3>
+			<p><a href="{user:website}">{user:website}</a></p>
 			<div class="bio">
 				{user:bio}
 			</div>
@@ -17,6 +18,8 @@
 			<h3>My work</h3>
 
 			<p><strong>{user:company}</strong></p>
+			
+			<p><strong>{user:company-website}</strong></p>
 			
 			<div class="bio">
 				{user:company-description}

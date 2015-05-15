@@ -2,6 +2,14 @@
 # CodeIgniter 2.x Branch
 --------------------------
 
+## Version 0.3
+
+- Community
+	¬ Updated: Profile now shows company website {user:company-website}
+	¬ Added: New Tag {user:website}
+	¬ Added: Profile Website (note: New SQL column)
+	¬ Fixed: Profile page now shows correct company info
+
 ## Version 0.2
 
 - Blogs
