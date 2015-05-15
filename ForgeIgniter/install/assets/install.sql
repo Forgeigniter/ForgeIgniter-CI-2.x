@@ -1177,6 +1177,7 @@ CREATE TABLE `ha_users` (
   `avatar` varchar(50) collate utf8_unicode_ci default NULL,
   `signature` text collate utf8_unicode_ci,
   `bio` text collate utf8_unicode_ci NOT NULL,
+  `website` varchar(100) collate utf8_unicode_ci default NULL,
   `companyName` varchar(100) collate utf8_unicode_ci default NULL,
   `companyEmail` varchar(100) collate utf8_unicode_ci default NULL,
   `companyWebsite` varchar(100) collate utf8_unicode_ci default NULL,
@@ -1201,9 +1202,9 @@ CREATE TABLE `ha_users` (
 
 LOCK TABLES `ha_users` WRITE;
 /*!40000 ALTER TABLE `ha_users` DISABLE KEYS */;
-INSERT INTO `ha_users` (`userID`,`username`,`password`,`groupID`,`email`,`subscription`,`subscribed`,`bounced`,`dateCreated`,`dateModified`,`displayName`,`firstName`,`lastName`,`address1`,`address2`,`address3`,`city`,`state`,`postcode`,`country`,`currency`,`billingAddress1`,`billingAddress2`,`billingAddress3`,`billingCity`,`billingState`,`billingPostcode`,`billingCountry`,`phone`,`avatar`,`signature`,`bio`,`companyName`,`companyEmail`,`companyWebsite`,`companyDescription`,`companyLogo`,`language`,`posts`,`kudos`,`notifications`,`privacy`,`resetkey`,`lastLogin`,`custom1`,`custom2`,`custom3`,`custom4`,`active`,`siteID`)
+INSERT INTO `ha_users` (`userID`,`username`,`password`,`groupID`,`email`,`subscription`,`subscribed`,`bounced`,`dateCreated`,`dateModified`,`displayName`,`firstName`,`lastName`,`address1`,`address2`,`address3`,`city`,`state`,`postcode`,`country`,`currency`,`billingAddress1`,`billingAddress2`,`billingAddress3`,`billingCity`,`billingState`,`billingPostcode`,`billingCountry`,`phone`,`avatar`,`signature`,`bio`,`website`,`companyName`,`companyEmail`,`companyWebsite`,`companyDescription`,`companyLogo`,`language`,`posts`,`kudos`,`notifications`,`privacy`,`resetkey`,`lastLogin`,`custom1`,`custom2`,`custom3`,`custom4`,`active`,`siteID`)
 VALUES
-	(1,'superuser','f35364bc808b079853de5a1e343e7159',-1,'','Y',0,0,NOW(),NOW(),NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'USD',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,NULL,'english',0,0,1,'V',NULL,'0000-00-00 00:00:00',NULL,NULL,NULL,NULL,1,NULL);
+	(1,'superuser','f35364bc808b079853de5a1e343e7159',-1,'','Y',0,0,NOW(),NOW(),NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'USD',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,'english',0,0,1,'V',NULL,'0000-00-00 00:00:00',NULL,NULL,NULL,NULL,1,NULL);
 
 /*!40000 ALTER TABLE `ha_users` ENABLE KEYS */;
 UNLOCK TABLES;
