@@ -234,6 +234,10 @@ $(function(){
 	<label for="bio">Bio:</label>
 	<?php echo @form_textarea('bio',set_value('bio', $data['bio']), 'id="bio" class="formelement small"'); ?>
 	<br class="clear" />
+	
+	<label for="companyName">Company Website:</label>
+	<input type="text" name="companyWebsite" value="{form:companyWebsite}" id="companyWebsite" class="formelement" />
+	<br class="clear" />
 
 	<label for="notifications">Notifications:</label>
 	<?php
