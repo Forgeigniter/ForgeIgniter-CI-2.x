@@ -14,9 +14,13 @@
 | path to your installation.
 | Support for http & https
 |
+| Note as of 2.2.6 update you may encounter some problems, if so replace
+| $site_base_url with 'http://yourdomain'
+|
 */
 $site_base_url = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '').'://'.$_SERVER['HTTP_HOST'].str_replace('//','/',dirname($_SERVER['SCRIPT_NAME']).'/');
-$config['base_url'] = '';
+
+$config['base_url'] = $site_base_url;
 
 /*
 |--------------------------------------------------------------------------
