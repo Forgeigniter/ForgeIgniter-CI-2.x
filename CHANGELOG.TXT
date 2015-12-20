@@ -10,6 +10,9 @@
 	¬ Added: Profile Website (note: New SQL column)
 	¬ Fixed: Profile page now shows correct company info
 
+- CodeIgniter
+	¬ Updated to v2.2.6 (http://www.codeigniter.com/userguide2/changelog.html)
+
 ## Version 0.2
 
 - Blogs
