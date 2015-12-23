@@ -231,7 +231,7 @@ class Permission {
 		// only select non admin groups
 		elseif ($type == 'normal')
 		{
-			$this->CI->db->select('ha_permission_groups.*, permissionID', FALSE);
+			$this->CI->db->select('permission_groups.*, permissionID', FALSE);
 			$this->CI->db->join('permission_map', 'permission_map.groupID = permission_groups.groupID', 'left');
 			$this->CI->db->where('permissionID IS NULL');
 			$this->CI->db->group_by('permission_groups.groupID');
