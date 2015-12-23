@@ -4,6 +4,9 @@
 
 ## Version 0.3
 
+- Admin Dashboard
+	¬ Updated: Footer to include CodeIgniter version.
+
 - Shop
 	¬ Fixed: on add product add cat warning takes you to Blog
 

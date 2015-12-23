@@ -11,7 +11,7 @@
 		<div class="container">
 
 		
-			<p class="copyright">Powered by <a href="http://www.forgeigniter.com" target="_blank" title="ForgeIgniter">ForgeIgniter</a> <br />
+			<p class="copyright">Powered by <a href="http://www.forgeigniter.com" target="_blank" title="ForgeIgniter">ForgeIgniter</a> - Forged on <a href="http://www.forgeigniter.com" target="_blank" title="ForgeIgniter">CodeIgniter</a> <?php echo CI_VERSION ?> <br />
 			Page Executed In: {elapsed_time}
 			</p>
 			
