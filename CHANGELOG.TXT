@@ -4,6 +4,9 @@
 
 ## Version 0.3
 
+- Shop
+	¬ Updated: on add product add cat warning takes you to Blog
+
 - Community
 	¬ Updated: Profile now shows company website {user:company-website}
 	¬ Added: New Tag {user:website}
