@@ -14,6 +14,7 @@
 	¬ Fixed: Profile page now shows correct company info
 
 - CodeIgniter
+	¬ Updated: Mimes
 	¬ Fixed: Permissions no need to select ha_
 	¬ Updated to v2.2.6 (http://www.codeigniter.com/userguide2/changelog.html)
 
