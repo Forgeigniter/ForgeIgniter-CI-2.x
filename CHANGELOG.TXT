@@ -4,6 +4,9 @@
 
 ## Version 0.4
 
+- ForgeIgniter
+	¬ Updated: changes to dbprefix
+
 - Markdown ITF Lib
 	¬ Updated: to support 1.6.0
 
