@@ -1,13 +1,13 @@
 ------------------------
-Halogy License
+ForgeIgniter License
 ------------------------
 
-Copyright (c) 2012, Haloweb Ltd
+Copyright (c) 2010-2015, ForgeIgniter Ltd
 All rights reserved.
 
-This license is a legal agreement between you and Haloweb Ltd, for the use 
-of Halogy Software (the "Software"). By obtaining the Software you agree 
-to be bound by the terms and conditions of this license. Haloweb Ltd 
+This license is a legal agreement between you and ForgeIgniter Ltd, for the use 
+of ForgeIgniter Software (the "Software"). By obtaining the Software you agree 
+to be bound by the terms and conditions of this license. ForgeIgniter Ltd 
 reserves the right to alter this agreement at any time, for any reason, 
 without notice.
 
@@ -28,15 +28,15 @@ conditions are met:
   of the change and the names of those who changed them.
     
 * Products derived from the Software must include an acknowledgment that 
-  they are derived from Halogy in their documentation and/or other materials 
+  they are derived from ForgeIgniter in their documentation and/or other materials 
   provided with the distribution.
     
-* Products derived from the Software may not be called "Halogy", nor may 
-  "Halogy" appear in their name, without prior written permission from 
-  Haloweb Ltd.
+* Products derived from the Software may not be called "ForgeIgniter", nor may 
+  "ForgeIgniter" appear in their name, without prior written permission from 
+  ForgeIgniter Ltd.
 
 INDEMNITY
-You agree to indemnify and hold harmless Haloweb Ltd for any third-party 
+You agree to indemnify and hold harmless ForgeIgniter Ltd for any third-party 
 claims, actions or suits, as well as any related expenses, liabilities, 
 damages, settlements or fees arising from your use or misuse of the 
 Software, or a violation of any terms of this license.
@@ -45,7 +45,7 @@ DISCLAIMER OF WARRANTY
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESSED 
 OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF QUALITY, 
 PERFORMANCE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A 
-PARTICULAR PURPOSE. FURTHER, HALOWEB LTD DOES NOT WARRANT THAT THE 
+PARTICULAR PURPOSE. FURTHER, FORGEIGNITER LTD DOES NOT WARRANT THAT THE 
 SOFTWARE OR ANY RELATED SERVICE WILL ALWAYS BE AVAILABLE.
 
 LIMITATIONS OF LIABILITY
