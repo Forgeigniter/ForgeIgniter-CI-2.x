@@ -2,10 +2,14 @@
 # CodeIgniter 2.x Branch
 --------------------------
 
-## Version 0.3
+## Version 0.4
 
-- Admin Dashboard
-	¬ Updated: Footer to include CodeIgniter version.
+- Markdown ITF Lib
+	¬ Updated: to support 1.5.1
+
+--------------------
+
+## Version 0.3
 
 - Shop
 	¬ Fixed: on add product add cat warning takes you to Blog
@@ -20,7 +24,9 @@
 	¬ Updated: Mimes
 	¬ Fixed: Permissions no need to select ha_
 	¬ Updated to v2.2.6 (http://www.codeigniter.com/userguide2/changelog.html)
-
+	
+--------------------
+	
 ## Version 0.2
 
 - Blogs
