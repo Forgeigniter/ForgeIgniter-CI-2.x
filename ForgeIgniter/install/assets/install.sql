@@ -15,7 +15,7 @@ CREATE TABLE FI_blog_catmap (
   `postID` int(11) NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`catID`,`postID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -31,7 +31,7 @@ CREATE TABLE `FI_blog_cats` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`catID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -50,7 +50,7 @@ CREATE TABLE `FI_blog_comments` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`commentID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -74,7 +74,7 @@ CREATE TABLE `FI_blog_posts` (
   `deleted` tinyint(1) default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`postID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -88,7 +88,7 @@ CREATE TABLE `FI_captcha` (
   `word` varchar(20) collate utf8_unicode_ci NOT NULL default '',
   PRIMARY KEY  (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -104,7 +104,7 @@ CREATE TABLE `FI_community_messagemap` (
   `unread` tinyint(1) unsigned NOT NULL default '1',
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`messageID`,`toUserID`,`userID`,`siteID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -120,7 +120,7 @@ CREATE TABLE `FI_community_messages` (
   `message` text collate utf8_unicode_ci,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`messageID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -134,7 +134,7 @@ CREATE TABLE `FI_ci_sessions` (
   `last_activity` int(10) unsigned NOT NULL default '0',
   `user_data` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`session_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -149,7 +149,7 @@ CREATE TABLE `FI_email_blocks` (
   `dateCreated` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`blockID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -162,7 +162,7 @@ CREATE TABLE `FI_email_campaigns` (
   `dateCreated` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`campaignID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -178,7 +178,7 @@ CREATE TABLE `FI_email_deploy` (
   `failed` tinyint(1) NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`deployID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -192,7 +192,7 @@ CREATE TABLE `FI_email_includes` (
   `body` text,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`includeID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -205,7 +205,7 @@ CREATE TABLE `FI_email_list_subscribers` (
   `name` varchar(100) default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`listID`,`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -219,7 +219,7 @@ CREATE TABLE `FI_email_lists` (
   `deleted` tinyint(1) NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`listID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -236,7 +236,7 @@ CREATE TABLE `FI_email_templates` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`templateID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -265,7 +265,7 @@ CREATE TABLE `FI_emails` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`emailID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -291,7 +291,7 @@ CREATE TABLE `FI_events` (
   `deleted` tinyint(1) unsigned default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`eventID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -307,7 +307,7 @@ CREATE TABLE `FI_file_folders` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`folderID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -327,7 +327,7 @@ CREATE TABLE `FI_files` (
   `downloads` int(11) NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`fileID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -350,7 +350,7 @@ CREATE TABLE `FI_forums` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`forumID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `FI_forums` (`forumID`, `forumName`, `catID`, `dateCreated`, `dateModified`, `description`, `topics`, `replies`, `lastPostID`, `private`, `groupID`, `active`, `deleted`, `siteID`) VALUES
 (1, 'Test Forum', NULL, '2015-01-05 06:32:24', '2015-01-05 06:32:24', 'Just A Test Forum', 0, 0, NULL, 0, 0, 1, 0, 1);
@@ -369,7 +369,7 @@ CREATE TABLE `FI_forums_cats` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`catID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -386,7 +386,7 @@ CREATE TABLE `FI_forums_posts` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`postID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -398,7 +398,7 @@ CREATE TABLE `FI_forums_subs` (
   `userID` int(11) NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`topicID`,`userID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -420,7 +420,7 @@ CREATE TABLE `FI_forums_topics` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`topicID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -437,7 +437,7 @@ CREATE TABLE `FI_image_folders` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`folderID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -460,7 +460,7 @@ CREATE TABLE `FI_images` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`imageID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -475,7 +475,7 @@ CREATE TABLE `FI_include_versions` (
   `body` longtext collate utf8_unicode_ci,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`versionID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -492,7 +492,7 @@ CREATE TABLE `FI_includes` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) NOT NULL default '0',
   PRIMARY KEY  (`includeID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -511,7 +511,7 @@ CREATE TABLE `FI_navigation` (
   `siteID` int(11) NOT NULL default '0',
   `deleted` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`navID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -527,7 +527,7 @@ CREATE TABLE `FI_page_blocks` (
   `dateCreated` timestamp NOT NULL default '0000-00-00 00:00:00',
   `siteID` int(11) NOT NULL default '0',
   PRIMARY KEY  (`blockID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -542,7 +542,7 @@ CREATE TABLE `FI_page_versions` (
   `published` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`versionID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -575,7 +575,7 @@ CREATE TABLE `FI_pages` (
   PRIMARY KEY  (`pageID`),
   KEY `uri` (`uri`),
   KEY `active` (`active`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -587,7 +587,7 @@ CREATE TABLE `FI_permission_groups` (
   `groupName` varchar(200) collate utf8_unicode_ci default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`groupID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 LOCK TABLES `FI_permission_groups` WRITE;
 /*!40000 ALTER TABLE `FI_permission_groups` DISABLE KEYS */;
@@ -608,7 +608,7 @@ CREATE TABLE `FI_permission_map` (
   `permissionID` int(11) NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`groupID`,`permissionID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -623,7 +623,7 @@ CREATE TABLE `FI_permissions` (
   `special` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`permissionID`),
   UNIQUE KEY `key` (`key`)
-) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 LOCK TABLES `FI_permissions` WRITE;
 /*!40000 ALTER TABLE `FI_permissions` DISABLE KEYS */;
@@ -698,7 +698,7 @@ CREATE TABLE `FI_ratings` (
   `userID` int(11) default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`ratingID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -711,7 +711,7 @@ CREATE TABLE `FI_shop_bands` (
   `multiplier` double default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`bandID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -723,7 +723,7 @@ CREATE TABLE `FI_shop_catmap` (
 	`productID` int(11) NOT NULL DEFAULT '0',
 	`siteID` int(11) DEFAULT NULL,
 	PRIMARY KEY (`catID`, `productID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -742,7 +742,7 @@ CREATE TABLE `FI_shop_cats` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`catID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -761,7 +761,7 @@ CREATE TABLE `FI_shop_discounts` (
   `base` enum('T','P') collate utf8_unicode_ci NOT NULL default 'T',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`discountID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -775,7 +775,7 @@ CREATE TABLE `FI_shop_modifiers` (
   `multiplier` double default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`modifierID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -791,7 +791,7 @@ CREATE TABLE `FI_shop_orders` (
   `key` text collate utf8_unicode_ci,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`orderID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -804,7 +804,7 @@ CREATE TABLE `FI_shop_postages` (
   `cost` double NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`postageID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -835,7 +835,7 @@ CREATE TABLE `FI_shop_products` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) NOT NULL default '0',
   PRIMARY KEY  (`productID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -854,7 +854,7 @@ CREATE TABLE `FI_shop_reviews` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`reviewID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -880,7 +880,7 @@ CREATE TABLE `FI_shop_transactions` (
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`transactionID`),
   KEY `transactionCode` (`transactionCode`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -901,7 +901,7 @@ CREATE TABLE `FI_shop_upsells` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`upsellID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -916,7 +916,7 @@ CREATE TABLE `FI_shop_variations` (
   `productID` int(11) default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`variationID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -978,7 +978,7 @@ CREATE TABLE `FI_sites` (
   `activation` tinyint(1) NOT NULL default '0',
   `active` tinyint(1) NOT NULL default '1',
   PRIMARY KEY  (`siteID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -992,7 +992,7 @@ CREATE TABLE `FI_sub_payments` (
   `amount` double default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`paymentID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=FIXED;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=FIXED;
 
 
 
@@ -1014,7 +1014,7 @@ CREATE TABLE `FI_subscribers` (
   `active` tinyint(1) NOT NULL default '1',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`subscriberID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1037,7 +1037,7 @@ CREATE TABLE `FI_subscriptions` (
   `deleted` tinyint(1) NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`subscriptionID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1050,7 +1050,7 @@ CREATE TABLE `FI_tags` (
   `tag` varchar(50) collate utf8_unicode_ci NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `safe_tag` (`safe_tag`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1063,7 +1063,7 @@ CREATE TABLE `FI_tags_ref` (
   `date` timestamp NOT NULL default '0000-00-00 00:00:00',
   `table` varchar(20) collate utf8_unicode_ci NOT NULL default '',
   `siteID` int(11) default NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1078,7 +1078,7 @@ CREATE TABLE `FI_template_versions` (
   `body` text collate utf8_unicode_ci,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`versionID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1095,7 +1095,7 @@ CREATE TABLE `FI_templates` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) NOT NULL default '0',
   PRIMARY KEY  (`templateID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1117,7 +1117,7 @@ CREATE TABLE `FI_tickets` (
   `siteID` int(11) default NULL,
   `viewed` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`ticketID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1136,7 +1136,7 @@ CREATE TABLE `FI_tracking` (
   `userdata` varchar(250) collate utf8_unicode_ci NOT NULL default '',
   `siteID` int(11) default '0',
   PRIMARY KEY  (`trackingID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1198,7 +1198,7 @@ CREATE TABLE `FI_users` (
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`userID`),
   KEY `emailindex` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 LOCK TABLES `FI_users` WRITE;
 /*!40000 ALTER TABLE `FI_users` DISABLE KEYS */;
@@ -1230,7 +1230,7 @@ CREATE TABLE `FI_web_forms` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`formID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1251,7 +1251,7 @@ CREATE TABLE `FI_wiki` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`pageID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1269,7 +1269,7 @@ CREATE TABLE `FI_wiki_cats` (
   `deleted` tinyint(1) unsigned NOT NULL default '0',
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`catID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 
@@ -1285,7 +1285,7 @@ CREATE TABLE `FI_wiki_versions` (
   `notes` varchar(250) collate utf8_unicode_ci default NULL,
   `siteID` int(11) default NULL,
   PRIMARY KEY  (`versionID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 

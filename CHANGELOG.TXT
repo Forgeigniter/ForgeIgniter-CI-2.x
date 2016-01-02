@@ -6,6 +6,7 @@
 
 - ForgeIgniter
 	¬ Updated: changes to dbprefix
+	¬ Updated: changed db engine to InnoDB
 
 - Markdown ITF Lib
 	¬ Updated: to support 1.6.0
