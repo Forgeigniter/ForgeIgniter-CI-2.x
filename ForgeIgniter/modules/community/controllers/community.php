@@ -57,6 +57,7 @@ class Community extends MX_Controller {
 
 		// load libs etc
 		$this->load->library('tags');
+		$this->load->library('WhoisOnline');
 		$this->load->model('community_model', 'community');
 
 		// load modules
@@ -93,8 +94,18 @@ class Community extends MX_Controller {
 		//User Count
 		$output['user:count'] = ($count = $this->community->count_users()) ? $count : 0;
 		
+		//Lets Test WhoisOnline Via a file instead of calls to the DB//
+		/*
+		$this->onlineusers->get_info();
+		$user['xxx.xxx.xxx.xxx']
+			['time'] => the last hit timestamp
+			['uri'] => the last page visited (got with $_SERVER['REQUEST_URI'])
+			['bot'] => The robot's name or false if the user is not recognized as a robot
+			['data'] => an array of the custom data you have added (set by set_data())
+		*/
 
 		// display with cms layer	
+		
 		$this->pages->view('community_members', $output, TRUE);
 	}
 	
