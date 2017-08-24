@@ -32,7 +32,7 @@ class Admin extends MX_Controller {
 		{
 			redirect('/admin/login/'.$this->core->encode($this->uri->uri_string()));
 		}
-		
+
 		// get permissions and redirect if they don't have access to this module
 		if (!$this->permission->permissions)
 		{
@@ -53,12 +53,12 @@ class Admin extends MX_Controller {
 		$this->load->model('blog_model', 'blog');
 		$this->load->library('tags');
 	}
-	
+
 	function index()
 	{
 		redirect($this->redirect);
 	}
-	
+
 	function viewall()
 	{
 		// default where
@@ -69,7 +69,7 @@ class Admin extends MX_Controller {
 		{
 			$where['userID'] = $this->session->userdata('userID');
 		}
-		
+
 		// grab data and display
 		$output = $this->core->viewall('blog_posts', $where, array('dateCreated', 'desc'));
 
@@ -87,21 +87,21 @@ class Admin extends MX_Controller {
 		}
 
 		// get values
-		$output['data'] = $this->core->get_values('blog_posts');	
+		$output['data'] = $this->core->get_values('blog_posts');
 
 		// get categories
 		$output['categories'] = $this->blog->get_categories();
 
 		if (count($_POST))
-		{		
+		{
 			// required
 			$this->core->required = array(
 				'postTitle' => array('label' => 'Title', 'rules' => 'required|trim'),
 				'body' => 'Body'
 			);
-			
+
 			// tidy tags
-			$tags = '';
+			$tags = [];
 			if ($this->input->post('tags'))
 			{
 				foreach (explode(',', $this->input->post('tags')) as $tag)
@@ -110,24 +110,24 @@ class Admin extends MX_Controller {
 				}
 				$tags = implode(', ', $tags);
 			}
-		
+
 			// set date
 			$this->core->set['dateCreated'] = date("Y-m-d H:i:s");
 			$this->core->set['userID'] = $this->session->userdata('userID');
 			$this->core->set['uri'] = url_title(strtolower($this->input->post('postTitle')));
 			$this->core->set['tags'] = $tags;
-			
+
 			// update
 			if ($this->core->update('blog_posts'))
 			{
 				$postID = $this->db->insert_id();
-	
+
 				// update categories
 				$this->blog->update_cats($postID, $this->input->post('catsArray'));
 
 				// update tags
 				$this->tags->update_tags('blog_posts', $postID, $tags);
-							
+
 				// where to redirect to
 				redirect($this->redirect);
 			}
@@ -146,19 +146,19 @@ class Admin extends MX_Controller {
 		{
 			redirect('/admin/dashboard/permissions');
 		}
-		
+
 		// set object ID
 		$objectID = array('postID' => $postID);
 
 		// get values
-		$output['data'] = $this->core->get_values('blog_posts', $objectID);	
+		$output['data'] = $this->core->get_values('blog_posts', $objectID);
 
 		// get categories
 		$output['categories'] = $this->blog->get_categories();
 
 		// get categories for this post
 		$output['data']['categories'] = $this->blog->get_cats_for_post($postID);
-		
+
 		if (count($_POST))
 		{
 			// required
@@ -166,16 +166,16 @@ class Admin extends MX_Controller {
 				'postTitle' => array('label' => 'Title', 'rules' => 'required|trim'),
 				'body' => 'Body'
 			);
-	
+
 			// set date
 			if ($this->input->post('publishDate'))
 			{
 				$seconds = dateFmt($output['data']['dateCreated'], 'H:i:s');
 				$this->core->set['dateCreated'] = date("Y-m-d H:i:s", strtotime($this->input->post('publishDate').' '.$seconds));
 			}
-			
+
 			// tidy tags
-			$tags = '';
+			$tags = [];
 			if ($this->input->post('tags'))
 			{
 				foreach (explode(',', $this->input->post('tags')) as $tag)
@@ -189,7 +189,7 @@ class Admin extends MX_Controller {
 			$this->core->set['dateModified'] = date("Y-m-d H:i:s");
 			$this->core->set['uri'] = url_title(strtolower($this->input->post('postTitle')));
 			$this->core->set['tags'] = $tags;
-			
+
 			// update
 			if ($this->core->update('blog_posts', $objectID))
 			{
@@ -198,9 +198,9 @@ class Admin extends MX_Controller {
 
 				// update tags
 				$this->tags->update_tags('blog_posts', $postID, $tags);
-							
+
 				// set success message
-				$this->session->set_flashdata('success', TRUE);					
+				$this->session->set_flashdata('success', TRUE);
 
 				// view page
 				if ($this->input->post('view'))
@@ -208,10 +208,10 @@ class Admin extends MX_Controller {
 					redirect('/blog/'.dateFmt($output['data']['dateCreated'], 'Y/m').'/'.url_title(strtolower($this->input->post('postTitle'))));
 				}
 				else
-				{																	
+				{
 					// where to redirect to
 					redirect('/admin/blog/edit_post/'.$postID);
-				}				
+				}
 			}
 		}
 
@@ -233,13 +233,13 @@ class Admin extends MX_Controller {
 		if (!in_array('blog_delete', $this->permission->permissions))
 		{
 			redirect('/admin/dashboard/permissions');
-		}		
-		
+		}
+
 		if ($this->core->soft_delete('blog_posts', array('postID' => $objectID)))
 		{
 			// remove category mappings
 			$this->blog->update_cats($objectID);
-			
+
 			// where to redirect to
 			redirect($this->redirect);
 		}
@@ -282,7 +282,7 @@ class Admin extends MX_Controller {
 		{
 			redirect('/admin/dashboard/permissions');
 		}
-				
+
 		if ($this->core->soft_delete('blog_comments', array('commentID' => $objectID)))
 		{
 			// where to redirect to
@@ -299,20 +299,20 @@ class Admin extends MX_Controller {
 		}
 
 		// get values
-		$output = $this->core->get_values('blog_cats');		
+		$output = $this->core->get_values('blog_cats');
 
 		// get categories
 		$output['categories'] = $this->blog->get_categories();
 
 		if (count($_POST))
-		{				
+		{
 			// required fields
 			$this->core->required = array('catName' => 'Category name');
-	
+
 			// set date
 			$this->core->set['dateCreated'] = date("Y-m-d H:i:s");
 			$this->core->set['catSafe'] = url_title(strtolower(trim($this->input->post('catName'))));
-	
+
 			// update
 			if ($this->core->update('blog_cats'))
 			{
@@ -341,7 +341,7 @@ class Admin extends MX_Controller {
 			foreach($listArray as $ID => $value)
 			{
 				if ($ID != '' && sizeof($value) > 0 && $value['catName'])
-				{	
+				{
 					// set object ID
 					$objectID = array('catID' => $ID);
 					$this->core->set['catName'] = $value['catName'];
@@ -352,8 +352,8 @@ class Admin extends MX_Controller {
 		}
 
 		// where to redirect to
-		redirect('/admin/blog/categories');		
-	}	
+		redirect('/admin/blog/categories');
+	}
 
 	function delete_cat($catID)
 	{
@@ -362,20 +362,20 @@ class Admin extends MX_Controller {
 		{
 			redirect('/admin/dashboard/permissions');
 		}
-				
+
 		// where
-		$objectID = array('catID' => $catID);	
-		
+		$objectID = array('catID' => $catID);
+
 		if ($this->core->soft_delete('blog_cats', $objectID))
 		{
 			// where to redirect to
 			redirect('/admin/blog/categories');
-		}		
+		}
 	}
 
 	function order($field = '')
 	{
 		$this->core->order(key($_POST), $field);
-	}	
+	}
 
 }
