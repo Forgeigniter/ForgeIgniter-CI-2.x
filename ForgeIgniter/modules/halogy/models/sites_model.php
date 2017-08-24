@@ -17,11 +17,11 @@
 // ------------------------------------------------------------------------
 
 class Sites_model extends CI_Model {
-	
+
 	function __construct()
 	{
 		parent::__construct();
-		
+
 		// get siteID, if available
 		if (defined('SITEID'))
 		{
@@ -30,14 +30,14 @@ class Sites_model extends CI_Model {
 	}
 
 	function get_sites($search = '')
-	{			
+	{
 		if ($search)
 		{
 			$search = $this->db->escape_like_str($search);
-			
+
 			$this->db->where('(siteDomain LIKE "%'.$search.'%" OR siteName LIKE "%'.$search.'%")');
 		}
-			
+
 		$query = $this->db->get('sites');
 
 		if ($query->num_rows() > 0)
@@ -49,7 +49,7 @@ class Sites_model extends CI_Model {
 			return false;
 		}
 	}
-	
+
 	function get_quota($siteID)
 	{
 		// get image quota
@@ -57,7 +57,7 @@ class Sites_model extends CI_Model {
 		$this->CI->db->select('SUM(filesize) as quota');
 		$query = $this->CI->db->get('images');
 		$row = $query->row_array();
-		
+
 		$quota = $row['quota'];
 
 		// get file quota
@@ -77,10 +77,10 @@ class Sites_model extends CI_Model {
 		$this->load->model('pages/pages_model', 'pages');
 
 		// get default theme and import it
-		$this->pages->siteID = $siteID;	
-		
+		$this->pages->siteID = $siteID;
+
 		if ($theme)
-		{	
+		{
 			$body = '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -92,25 +92,25 @@ class Sites_model extends CI_Model {
 		<meta name="keywords" content="{page:keywords}" />
 		<meta name="description" content="{page:description}" />
 
-		<link rel="stylesheet" href="http://static.halogy.com/css/newsite.css" type="text/css" />
-		
+		<link rel="stylesheet" href="{site:url}static/css/newsite.css" type="text/css" />
+
 	</head>
 	<body>
-	
+
 		<div class="logo">
 			<a href="'.site_url().'">
-				<img src="http://static.halogy.com/images/halogy_logo.png" id="logo" alt="Halogy" />
-			</a>			
+				<img src="{site:url}static/images/halogy_logo.png" id="logo" alt="Halogy" />
+			</a>
 		</div>
 
 		<div class="main">
 			<!--CONTENT-->
 
 			{block1}
-			
+
 			<!--ENDCONTENT-->
 		</div>
-		
+
 		<div class="menu">
 			<ul>
 				{navigation}
@@ -122,21 +122,21 @@ class Sites_model extends CI_Model {
 				<li><a href="'.base_url().$this->config->item('index_page').'admin">Admin</a></li>
 			</ul>
 		</div>
-		
+
 		<center><p><small>Powered by <a href="http://www.forgeigniter.com">ForgeIgniter</a></small></p></center>
-		<center><p><small>Page Executed In: {elapsed_time}</small></p></center>		
-	
-		
+		<center><p><small>Page Executed In: {elapsed_time}</small></p></center>
+
+
 	</body>
 </html>';
-					
+
 			$templateID = $this->pages->import_template('default.html', $body);
 		}
 		else
 		{
 			$content = "<html>\n<head><title>{page:title}</title>\n<body>\n\n<br><br><center>\n\n{block1}\n\n</center></body>\n</html>";
 			$templateID = $this->pages->add_template('Default', $content);
-		}	
+		}
 
 		// add home page
 		$this->db->set('siteID', $siteID);
@@ -145,10 +145,10 @@ class Sites_model extends CI_Model {
 		$this->db->set('title', 'Home');
 		$this->db->set('uri', 'home');
 		$this->db->set('templateID', $templateID);
-		$this->db->set('active', 1);		
+		$this->db->set('active', 1);
 		$this->db->insert('pages');
 		$pageID = $this->db->insert_id();
-		
+
 		// add version
 		$this->db->set('siteID', $siteID);
 		$this->db->set('dateCreated', date("Y-m-d H:i:s"));
@@ -156,7 +156,7 @@ class Sites_model extends CI_Model {
 		$this->db->set('published', 1);
 		$this->db->insert('page_versions');
 		$versionID = $this->db->insert_id();
-		
+
 		// update page
 		$this->db->set('draftID', $versionID);
 		$this->db->set('versionID', $versionID);
@@ -172,16 +172,16 @@ class Sites_model extends CI_Model {
 		$this->db->set('versionID', $versionID);
 		$this->db->insert('page_blocks');
 
-		return TRUE;		
+		return TRUE;
 	}
-	
+
 	function delete_site($siteID)
-	{	
+	{
 		// delete site
 		$this->db->where('siteID', $siteID);
 		$this->db->delete('sites');
-		
+
 		return TRUE;
-	}	
+	}
 
 }
