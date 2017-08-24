@@ -30,7 +30,7 @@ class Blog extends MX_Controller {
 		if (defined('SITEID'))
 		{
 			$this->siteID = SITEID;
-		}		
+		}
 
 		// get site permissions and redirect if it don't have access to this module
 		if (!$this->permission->sitePermissions)
@@ -43,7 +43,7 @@ class Blog extends MX_Controller {
 		}
 
 		// load models and modules
-		$this->load->library('tags');		
+		$this->load->library('tags');
 		$this->load->model('blog_model', 'blog');
 		$this->load->module('pages');
 
@@ -85,7 +85,7 @@ class Blog extends MX_Controller {
 				);
 			}
 		}
-		
+
 		// get tags
 		if ($popularTags = $this->tags->get_popular_tags('blog_posts'))
 		{
@@ -101,10 +101,10 @@ class Blog extends MX_Controller {
 	}
 
 	function index()
-	{	
+	{
 		// get partials
 		$output = $this->partials;
-	
+
 		// get latest posts
 		$posts = $this->blog->get_posts($this->num);
 		$output['blog:posts'] = $this->_populate_posts($posts);
@@ -113,16 +113,16 @@ class Blog extends MX_Controller {
 		$output['page:title'] = 'Blog'.(($this->site->config['siteName']) ? ' - '.$this->site->config['siteName'] : '');
 
 		// set pagination and breadcrumb
-		$output['blog:newer'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/more/page/'.($this->pagination->offset - $this->num), '&laquo; Newer') :
 				anchor('/blog', '&laquo; Newer'))
 		: '';
 		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/more/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';
 
 		// set pagination and breadcrumb with class
-		$output['blog:newer:btn'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer:btn'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/more/page/'.($this->pagination->offset - $this->num), '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))) :
 				anchor('/blog', '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))))
 		: '';
@@ -133,10 +133,10 @@ class Blog extends MX_Controller {
 	}
 
 	function more()
-	{	
+	{
 		// get partials
 		$output = $this->partials;
-	
+
 		// get latest posts
 		$posts = $this->blog->get_posts($this->num);
 		$output['blog:posts'] = $this->_populate_posts($posts);
@@ -145,16 +145,16 @@ class Blog extends MX_Controller {
 		$output['page:title'] = 'Blog'.(($this->site->config['siteName']) ? ' - '.$this->site->config['siteName'] : '');
 
 		// set pagination and breadcrumb
-		$output['blog:newer'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/more/page/'.($this->pagination->offset - $this->num), '&laquo; Newer') :
 				anchor('/blog', '&laquo; Newer'))
 		: '';
 		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/more/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';
 
 		// set pagination and breadcrumb with class
-		$output['blog:newer:btn'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer:btn'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/more/page/'.($this->pagination->offset - $this->num), '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))) :
 				anchor('/blog', '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))))
 		: '';
@@ -167,17 +167,17 @@ class Blog extends MX_Controller {
 	function read()
 	{
 		// get partials
-		$output = $this->partials;	
-				
+		$output = $this->partials;
+
 		// get post based on uri
 		$year = $this->uri->segment(2);
 		$month = $this->uri->segment(3);
 		$uri = $this->uri->segment(4);
-		
+
 		if ($post = $this->blog->get_post($year, $month, $uri))
 		{
 			// add comment
-			if (count($_POST))
+			if (count($this->input->post()))
 			{
 				// required
 				$this->core->required = array(
@@ -187,7 +187,7 @@ class Blog extends MX_Controller {
 
 				// check for spam
 				preg_match_all('/http:\/\//i', $this->input->post('comment'), $urlMatches);
-				preg_match_all('/viagra|levitra|cialis/i', $this->input->post('comment'), $spamMatches);			
+				preg_match_all('/viagra|levitra|cialis/i', $this->input->post('comment'), $spamMatches);
 				if (count($urlMatches[0]) > 2 || (count($urlMatches[0]) > 0 && count($spamMatches[0]) > 0))
 				{
 					$this->form_validation->set_error('Sorry but your comment looks like spam. Please remove links and try again.');
@@ -197,11 +197,11 @@ class Blog extends MX_Controller {
 					$this->form_validation->set_error('Sorry you didn\'t pass the spam check. Please contact us to post a comment.');
 				}
 				else
-				{			
+				{
 					// set date
 					$this->core->set['dateCreated'] = date("Y-m-d H:i:s");
 					$this->core->set['postID'] = $post['postID'];
-	
+
 					// awaiting moderation
 					if ($this->session->userdata('session_admin'))
 					{
@@ -211,19 +211,19 @@ class Blog extends MX_Controller {
 					{
 						$this->core->set['active'] = 0;
 					}
-					
+
 					// update
 					if ($this->core->update('blog_comments'))
 					{
 						// get insertID
 						$commentID = $this->db->insert_id();
-	
-						// get details on post poster		
+
+						// get details on post poster
 						$user = $this->blog->get_user($post['userID']);
-	
+
 						// construct URL
-						$url = '/blog/'.$year.'/'.$month.'/'.$uri.'/';					
-						
+						$url = '/blog/'.$year.'/'.$month.'/'.$uri.'/';
+
 						if ($user['notifications'] && !$this->session->userdata('session_admin'))
 						{
 							// set header and footer
@@ -231,28 +231,28 @@ class Blog extends MX_Controller {
 							$emailHeader = str_replace('{email}', $user['email'], $emailHeader);
 							$emailFooter = str_replace('{name}', $user['firstName'].' '.$user['lastName'], $this->site->config['emailFooter']);
 							$emailFooter = str_replace('{email}', $user['email'], $emailFooter);
-							
+
 							// send email
-							$this->load->library('email');						
+							$this->load->library('email');
 							$this->email->from($this->site->config['siteEmail'], $this->site->config['siteName']);
-							$this->email->to($user['email']);			
+							$this->email->to($user['email']);
 							$this->email->subject('New Blog Comment on '.$this->site->config['siteName']);
 							$this->email->message($emailHeader."\n\nSomeone has just commented on your blog post titled \"".$post['postTitle']."\".\n\nYou can either approve or delete this comment by clicking on the following URL:\n\n".site_url('/admin/blog/comments')."\n\nThey said:\n\"".$this->input->post('comment')."\"\n\n".$emailFooter);
 							$this->email->send();
 						}
-	
+
 						// output message
 						$output['message'] = 'Thank you, your comment has been posted and is awaiting moderation.';
-	
+
 						// disable form
 						$post['allowComments'] = 0;
 					}
 				}
 			}
-												
+
 			// set page title
 			$output['page:title'] = $post['postTitle'].(($this->site->config['siteName']) ? ' - '.$this->site->config['siteName'] : '');
-			
+
 			// set meta description
 			if ($post['excerpt'])
 			{
@@ -292,7 +292,7 @@ class Blog extends MX_Controller {
 				{
 					$output['post:categories'][$i]['category:link'] = site_url('blog/'.url_title(strtolower(trim($cat))));
 					$output['post:categories'][$i]['category'] = $cat;
-					
+
 					$i++;
 				}
 			}
@@ -301,13 +301,13 @@ class Blog extends MX_Controller {
 			if ($post['tags'])
 			{
 				$tags = explode(',', $post['tags']);
-				
+
 				$i = 0;
 				foreach ($tags as $tag)
 				{
 					$output['post:tags'][$i]['tag:link'] = site_url('blog/tag/'.$this->tags->make_safe_tag($tag));
 					$output['post:tags'][$i]['tag'] = $tag;
-					
+
 					$i++;
 				}
 			}
@@ -324,11 +324,11 @@ class Blog extends MX_Controller {
 					$output['post:comments'][$i]['comment:author'] = (!empty($comment['website'])) ? anchor(prep_url($comment['website']), $comment['fullName']) : $comment['fullName'];
 					$output['post:comments'][$i]['comment:date'] = dateFmt($comment['dateCreated'], ($this->site->config['dateOrder'] == 'MD') ? 'M jS Y' : 'jS M Y');
 					$output['post:comments'][$i]['comment:body'] = nl2br(auto_link(strip_tags($comment['comment'])));
-					
+
 					$i++;
 				}
 			}
-		
+
 			// load errors
 			$output['errors'] = (validation_errors()) ? validation_errors() : FALSE;
 
@@ -337,7 +337,7 @@ class Blog extends MX_Controller {
 
 			// output post ID for CMS
 			$output['postID'] = $post['postID'];
-			
+
 			// display with cms layer
 			$this->pages->view('blog_single', $output, TRUE);
 		}
@@ -350,36 +350,36 @@ class Blog extends MX_Controller {
 	function tag($tag = '')
 	{
 		// get partials
-		$output = $this->partials;	
+		$output = $this->partials;
 
 		// get posts
 		$posts = $this->blog->get_posts_by_tag($tag);
 		$output['blog:posts'] = $this->_populate_posts($posts);
-		
+
 		// output tag tags
 		$output['tag:title'] = ucwords(str_replace('-', ' ', $tag));
 		$output['tag:link'] = '/blog/tag/'.$tag;
 
 		// set pagination and breadcrumb
-		$output['blog:newer'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/tag/'.$tag.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer') :
 				anchor('/blog/tag/'.$tag, '&laquo; Newer'))
 		: '';
-		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/tag/'.$tag.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';	
+		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/tag/'.$tag.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';
 
 		// set pagination and breadcrumb with class
-		$output['blog:newer:btn'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer:btn'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/tag/'.$tag.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))) :
 				anchor('/blog/tag/'.$tag, '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))))
 		: '';
-		$output['blog:older:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/tag/'.$tag.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';	
-		
+		$output['blog:older:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/tag/'.$tag.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';
+
 		// set title
 		$output['page:title'] = ucwords(str_replace('-', ' ', $tag)).(($this->site->config['siteName']) ? ' - '.$this->site->config['siteName'] : '');
 		$output['page:heading'] = '<small>Tag:</small> '.ucfirst(str_replace('-', ' ', $tag));
-		
+
 		// display with cms layer
 		$this->pages->view('blog', $output, TRUE);
 	}
@@ -387,36 +387,36 @@ class Blog extends MX_Controller {
 	function category($cat = '')
 	{
 		// get partials
-		$output = $this->partials;	
+		$output = $this->partials;
 
 		// get posts
 		$posts = $this->blog->get_posts_by_category($cat);
 		$output['blog:posts'] = $this->_populate_posts($posts);
-		
+
 		// output category tags
 		$output['category:title'] = ucwords(str_replace('-', ' ', $cat));
 		$output['category:link'] = '/blog/'.$cat;
 
 		// set pagination and breadcrumb
-		$output['blog:newer'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/'.$cat.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer') :
 				anchor('/blog/'.$cat, '&laquo; Newer'))
 		: '';
 		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$cat.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';
 
 		// set pagination and breadcrumb with class
-		$output['blog:newer:btn'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer:btn'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/'.$cat.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))) :
 				anchor('/blog/'.$cat, '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))))
 		: '';
 		$output['blog:older:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$cat.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';
-		
+
 		// set title
 		$output['page:title'] = ucwords(str_replace('-', ' ', $cat)).(($this->site->config['siteName']) ? ' - '.$this->site->config['siteName'] : '');
 		$output['page:heading'] = '<small>Category:</small> '.ucwords(str_replace('-', ' ', $cat));
-		
+
 		// display with cms layer
 		$this->pages->view('blog', $output, TRUE);
 	}
@@ -424,8 +424,8 @@ class Blog extends MX_Controller {
 	function month()
 	{
 		// get partials
-		$output = $this->partials;	
-				
+		$output = $this->partials;
+
 		// get post based on uri
 		$year = $this->uri->segment(2);
 		$month = $this->uri->segment(3);
@@ -439,23 +439,23 @@ class Blog extends MX_Controller {
 		$output['page:heading'] = '<small>Archive:</small> '.date('F Y', mktime(0,0,0,$month,1,$year));
 
 		// set pagination and breadcrumb
-		$output['blog:newer'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/'.$year.'/'.$month.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer') :
 				anchor('/blog/'.$year.'/'.$month, '&laquo; Newer'))
 		: '';
-		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/'.$month.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';	
+		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/'.$month.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';
 
 		// set pagination and breadcrumb with class
-		$output['blog:newer:btn'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer:btn'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/'.$year.'/'.$month.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))) :
 				anchor('/blog/'.$year.'/'.$month, '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))))
 		: '';
-		$output['blog:older:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/'.$month.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';	
-				
+		$output['blog:older:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/'.$month.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';
+
 		// display with cms layer
-		$this->pages->view('blog', $output, TRUE);	
+		$this->pages->view('blog', $output, TRUE);
 	}
 
 	function year()
@@ -464,7 +464,7 @@ class Blog extends MX_Controller {
 		$output = $this->partials;
 
 		// get post based on uri
-		$year = $this->uri->segment(2);	
+		$year = $this->uri->segment(2);
 
 		// get tags
 		$posts = $this->blog->get_posts_by_date($year);
@@ -472,32 +472,32 @@ class Blog extends MX_Controller {
 
 		// set title
 		$output['page:title'] = 'Posts For '.date('Y', mktime(0,0,0,1,1,$year)).(($this->site->config['siteName']) ? ' - '.$this->site->config['siteName'] : '');
-		$output['page:heading'] = '<small>Archive:</small> '.date('Y', mktime(0,0,0,1,1,$year));		
+		$output['page:heading'] = '<small>Archive:</small> '.date('Y', mktime(0,0,0,1,1,$year));
 
 		// set pagination and breadcrumb
-		$output['blog:newer'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/'.$year.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer') :
 				anchor('/blog/'.$year, '&laquo; Newer'))
 		: '';
-		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';	
+		$output['blog:older'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;') : '';
 
 		// set pagination and breadcrumb with Button
-		$output['blog:newer:btn'] = ($this->pagination->offset) ? 
-			(($this->pagination->offset - $this->num > 0) ? 
+		$output['blog:newer:btn'] = ($this->pagination->offset) ?
+			(($this->pagination->offset - $this->num > 0) ?
 				anchor('/blog/'.$year.'/page/'.($this->pagination->offset - $this->num), '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))) :
 				anchor('/blog/'.$year, '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))))
 		: '';
-		$output['blog:older:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';	
-		
+		$output['blog:older:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/'.$year.'/page/'.($this->pagination->offset + $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';
+
 		// display with cms layer
-		$this->pages->view('blog', $output, TRUE);	
+		$this->pages->view('blog', $output, TRUE);
 	}
 
 	function search($query = '')
 	{
 		// get partials
-		$output = $this->partials;	
+		$output = $this->partials;
 
 		// set tags
 		$query = ($query) ? $query : strip_tags($this->input->post('query', TRUE));
@@ -511,65 +511,65 @@ class Blog extends MX_Controller {
 
 		// set title
 		$output['page:title'] = 'Search the Blog'.(($this->site->config['siteName']) ? ' - '.$this->site->config['siteName'] : '');
-		$output['page:heading'] = 'Search for "'.$output['query'].'"';	
+		$output['page:heading'] = 'Search for "'.$output['query'].'"';
 
 		// set pagination and breadcrumb
 		$output['blog:older'] = ($this->pagination->offset) ? anchor('/blog/more/page/'.($this->pagination->offset - $this->num), 'Older &raquo;') : '';
 		$output['blog:newer'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/more/page/'.($this->pagination->offset + $this->num), '&laquo; Newer') : '';
-	
+
 		// set pagination and breadcrumb with class
 		$output['blog:older:btn'] = ($this->pagination->offset) ? anchor('/blog/more/page/'.($this->pagination->offset - $this->num), 'Older &raquo;', array('class' => $this->config->item('blogBtnClass'))) : '';
 		$output['blog:newer:btn'] = ($this->pagination->total_rows > ($this->pagination->offset + $this->num)) ? anchor('/blog/more/page/'.($this->pagination->offset + $this->num), '&laquo; Newer', array('class' => $this->config->item('blogBtnClass'))) : '';
-		
+
 		// display with cms layer
-		$this->pages->view('blog_search', $output, TRUE);		
+		$this->pages->view('blog_search', $output, TRUE);
 	}
-	
+
 	function feed($cat = '')
 	{
 		// rss feed
 		$this->load->helper('xml');
-		
+
 		$data['encoding'] = 'utf-8';
 		$data['page_language'] = 'en';
 		$data['creator_email'] = $this->site->config['siteEmail'];
-		
+
 		// get posts by category
 		if ($cat)
 		{
 			$category = ucwords(str_replace('-', ' ', $cat));
-			
+
 			$data['feed_name'] = $this->site->config['siteName'].' - '.$category;
 			$data['feed_url'] = site_url('/blog/'.$cat);
-			$data['page_description'] = 'Blog Category RSS Feed for '.$this->site->config['siteName'].' - '.$category.'.';			
-			
+			$data['page_description'] = 'Blog Category RSS Feed for '.$this->site->config['siteName'].' - '.$category.'.';
+
 			$data['posts'] = $this->blog->get_posts_by_category($cat);
 		}
-		
+
 		// get latest posts
 		else
 		{
 			$data['feed_name'] = $this->site->config['siteName'];
 			$data['feed_url'] = site_url('/blog');
 			$data['page_description'] = 'Blog RSS Feed for '.$this->site->config['siteName'].'.';
-			
+
 			$data['posts'] = $this->blog->get_posts(10);
 		}
-		
+
 		$this->output->set_header('Content-Type: application/rss+xml');
 		$this->load->view('blog/rss', $data);
 	}
 
 	function ac_search()
 	{
-		$tags = strtolower($_POST["q"]);
+		$tags = strtolower($this->input->post["q"]);
         if (!$tags)
         {
         	return FALSE;
         }
 
 		if ($objectIDs = $this->tags->search('blog_posts', $tags))
-		{		
+		{
 			// form dropdown and myql get countries
 			if ($searches = $this->blog->search_posts($objectIDs))
 			{
@@ -615,8 +615,8 @@ class Blog extends MX_Controller {
 			foreach($posts as $post)
 			{
 				// get author details
-				$author = $this->blog->lookup_user($post['userID']);				
-				
+				$author = $this->blog->lookup_user($post['userID']);
+
 				// populate template array
 				$data[$x] = array(
 					'post:link' => site_url('blog/'.dateFmt($post['dateCreated'], 'Y/m').'/'.$post['uri']),
@@ -624,7 +624,7 @@ class Blog extends MX_Controller {
 					'post:date' => dateFmt($post['dateCreated'], ($this->site->config['dateOrder'] == 'MD') ? 'M jS Y' : 'jS M Y'),
 					'post:day' => dateFmt($post['dateCreated'], 'd'),
 					'post:month' => dateFmt($post['dateCreated'], 'M'),
-					'post:year' => dateFmt($post['dateCreated'], 'y'),										
+					'post:year' => dateFmt($post['dateCreated'], 'y'),
 					'post:body' => $this->template->parse_body($post['body'], TRUE, site_url('blog/'.dateFmt($post['dateCreated'], 'Y/m').'/'.$post['uri'])),
 					'post:excerpt' => $this->template->parse_body($post['excerpt'], TRUE, site_url('blog/'.dateFmt($post['dateCreated'], 'Y/m').'/'.$post['uri'])),
 					'post:author' => (($author['displayName']) ? $author['displayName'] : $author['firstName'].' '.$author['lastName']),
@@ -634,7 +634,7 @@ class Blog extends MX_Controller {
 					'post:author-bio' => $author['bio'],
 					'post:comments-count' => $post['numComments']
 				);
-	
+
 				// get cats
 				if ($cats = $this->blog->get_cats_for_post($post['postID']))
 				{
@@ -643,11 +643,11 @@ class Blog extends MX_Controller {
 					{
 						$data[$x]['post:categories'][$i]['category:link'] = site_url('blog/'.url_title(strtolower(trim($cat))));
 						$data[$x]['post:categories'][$i]['category'] = $cat;
-						
+
 						$i++;
 					}
 				}
-				
+
 				// get tags
 				if ($post['tags'])
 				{
@@ -658,11 +658,11 @@ class Blog extends MX_Controller {
 					{
 						$data[$x]['post:tags'][$i]['tag:link'] = site_url('blog/tag/'.$this->tags->make_safe_tag($tag));
 						$data[$x]['post:tags'][$i]['tag'] = $tag;
-						
+
 						$i++;
 					}
 				}
-	
+
 				$x++;
 			}
 
@@ -673,5 +673,5 @@ class Blog extends MX_Controller {
 			return FALSE;
 		}
     }
-    
+
 }
