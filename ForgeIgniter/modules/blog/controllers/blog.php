@@ -192,7 +192,7 @@ class Blog extends MX_Controller {
 				{
 					$this->form_validation->set_error('Sorry but your comment looks like spam. Please remove links and try again.');
 				}
-				elseif (isset($_POST['captcha']) && !$this->_captcha_check())
+				elseif (isset($this->input->post['captcha']) && !$this->_captcha_check())
 				{
 					$this->form_validation->set_error('Sorry you didn\'t pass the spam check. Please contact us to post a comment.');
 				}
@@ -530,6 +530,7 @@ class Blog extends MX_Controller {
 		// rss feed
 		$this->load->helper('xml');
 
+		$data = [];
 		$data['encoding'] = 'utf-8';
 		$data['page_language'] = 'en';
 		$data['creator_email'] = $this->site->config['siteEmail'];
