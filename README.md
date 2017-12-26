@@ -4,4 +4,5 @@ ForgeIgniter CMS built on CodeIgniter 2.x
 
 --
 
-For the CI3 version check out: https://github.com/Forgeigniter/ForgeIgniter
+### CodeIgniter 3 Version:  
+https://github.com/Forgeigniter/ForgeIgniter-CI-3.x
